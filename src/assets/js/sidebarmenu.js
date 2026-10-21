@@ -137,7 +137,7 @@ File: js
       preventDefault: true,
       activeClass: 'active',
       collapseClass: 'collapse',
-      collapseInClass: 'in',
+      collapseInClass: 'collapse-in',
       collapsingClass: 'collapsing',
       triggerElement: 'a',
       parentTrigger: 'li',
@@ -165,7 +165,7 @@ File: js
 
       AdminMenu.prototype.init = function init() {
         var self = this;
-        $(this._element).find(this._config.parentTrigger + '.' + this._config.activeClass).has(this._config.subMenu).children(this._config.subMenu).attr('aria-expanded', true).addClass(this._config.collapseClass + ' ' + this._config.collapseInClass);
+        $(this._element).find(this._config.parentTrigger + '.' + this._config.activeClass).has(this._config.subMenu).children(this._config.subMenu).attr('aria-expanded', true).addClass(this._config.collapseInClass);
 
         $(this._element).find(this._config.parentTrigger).not('.' + this._config.activeClass).has(this._config.subMenu).children(this._config.subMenu).attr('aria-expanded', false).addClass(this._config.collapseClass);
 
@@ -223,7 +223,7 @@ File: js
 
         var complete = function complete() {
 
-          _el.removeClass(_this._config.collapsingClass).addClass(_this._config.collapseClass + ' ' + _this._config.collapseInClass).height('').attr('aria-expanded', true);
+          _el.removeClass(_this._config.collapsingClass).addClass(_this._config.collapseInClass).height('').attr('aria-expanded', true);
 
           _this.setTransitioning(false);
 
